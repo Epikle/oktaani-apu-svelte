@@ -6,24 +6,14 @@
   import Matkailuauto from './matkailuauto.svelte';
   import Akselimassat from './akselimassat.svelte';
 
-  // List of tab items with labels and values.
-  let tabItems = [
-    { label: 'Renkaat', value: 1 },
-    { label: 'CO₂', value: 2 },
-    { label: 'Autovero 8 §', value: 3 },
-    { label: 'Matkailuauto', value: 4 },
-    { label: 'Akselimassat', value: 5 },
-  ];
-
-  // Current active tab
-  let currentTab = tabItems[0];
+  let currentTab;
 
   window.onbeforeunload = function () {
     return 'Haluatko varmasti poistua sivulta?';
   };
 </script>
 
-<Tabs bind:activeTabValue={currentTab} items={tabItems} />
+<Tabs bind:activeTabValue={currentTab} />
 
 {#if 1 === currentTab}
   <Renkaat />

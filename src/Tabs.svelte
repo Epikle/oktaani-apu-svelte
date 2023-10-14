@@ -1,11 +1,17 @@
 <script>
   import { onMount } from 'svelte';
 
-  export let items = [];
+  let items = [
+    { label: 'Renkaat', value: 1 },
+    { label: 'CO₂', value: 2 },
+    { label: 'Autovero 8 §', value: 3 },
+    { label: 'Matkailuauto', value: 4 },
+    { label: 'Akselimassat', value: 5 },
+  ];
+
   export let activeTabValue;
 
   onMount(() => {
-    // Set default tab value
     if (Array.isArray(items) && items.length && items[0].value) {
       activeTabValue = items[0].value;
     }
@@ -14,7 +20,7 @@
   const handleClick = (tabValue) => () => (activeTabValue = tabValue);
 </script>
 
-<nav class="navbar navbar-expand-sm navbar-light bg-light border-bottom mb-2" role="tabpanel">
+<nav class="navbar navbar-expand-sm navbar-light bg-light border-bottom mb-2">
   <div class="logo">
     oktaani<strong>APU</strong>
   </div>
@@ -24,12 +30,12 @@
         {#if Array.isArray(items)}
           {#each items as item}
             <li class="nav-item">
-              <span
+              <button
                 class={activeTabValue === item.value ? 'nav-link active' : 'nav-link'}
                 on:click={handleClick(item.value)}
               >
                 {item.label}
-              </span>
+              </button>
             </li>
           {/each}
         {/if}
@@ -43,9 +49,7 @@
     margin-right: 2rem;
     font-size: 1.25rem;
   }
-  span {
-    cursor: pointer;
-  }
+
   .nav-tabs {
     border: 0;
     border-radius: 3px;

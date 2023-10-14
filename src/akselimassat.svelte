@@ -1,5 +1,6 @@
 <script>
   import Tulosta from './tulosta.svelte';
+  import car from './assets/car.png';
 
   let etuakselimassa,
     takaakselimassa,
@@ -28,7 +29,7 @@
       (paikkalukuEtuYht * x1 + paikkalukuTakaYht * (x1 + x2) + takaakseliOmamassa * (x1 + x2 + x3)) /
       (x1 + x2 + x3)
     ).toFixed(0);
-    etuakselimassa = (omamassa + paikkalukuEtuYht + paikkalukuTakaYht - takaakselimassa).toFixed(0);
+    etuakselimassa = (omamassa + paikkalukuEtuYht + paikkalukuTakaYht - Number(takaakselimassa)).toFixed(0);
   }
 </script>
 
@@ -135,7 +136,7 @@
       </div>
     </div>
     <div class="col-md-3 text-center">
-      <img src="img/car.png" height="100px" alt="Mitat" />
+      <img src={car} height="100px" alt="Mitat" />
     </div>
   </div>
 

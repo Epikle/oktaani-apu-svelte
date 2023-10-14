@@ -71,7 +71,7 @@
     <input
       type="text"
       class="form-control"
-      placeholder={kokonaismassa && omamassa && teho ? [tulos ? 'Onnistuu' : 'Ei onnistu'] : 'Täytä kaikki kentät'}
+      placeholder={kokonaismassa && omamassa && teho ? (tulos ? 'Onnistuu' : 'Ei onnistu') : 'Täytä kaikki kentät'}
       disabled
     />
   </div>

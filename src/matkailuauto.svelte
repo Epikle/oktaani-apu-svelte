@@ -38,9 +38,7 @@
   </div>
   <small class="form-text text-muted mb-1"> Matkailuauton kokonaispituus metreissä. </small>
 
-  <label>Tulos</label>
-
-  <div class="input-group input-group-sm mb-1">
+  <div class="input-group input-group-sm mb-1 mt-4">
     <div class="input-group-prepend">
       <span class="input-group-text alert-success">Matkustajapaikat</span>
     </div>

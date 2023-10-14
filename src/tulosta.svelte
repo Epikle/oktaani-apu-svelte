@@ -1,12 +1,6 @@
-<script>
-  function tulosta() {
-    window.print();
-  }
-</script>
-
 <div class="row text-center my-5 d-print-none">
   <div class="col">
-    <button type="button" class="btn btn-primary" on:click={tulosta}> Tulosta </button>
+    <button type="button" class="btn btn-primary" on:click={() => window.print()}> Tulosta </button>
   </div>
 </div>
 <div class="row text-center mb-3 d-print-none">
