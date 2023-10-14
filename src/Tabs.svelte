@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount } from 'svelte';
 
   export let items = [];
   export let activeTabValue;
@@ -11,8 +11,32 @@
     }
   });
 
-  const handleClick = tabValue => () => (activeTabValue = tabValue);
+  const handleClick = (tabValue) => () => (activeTabValue = tabValue);
 </script>
+
+<nav class="navbar navbar-expand-sm navbar-light bg-light border-bottom mb-2" role="tabpanel">
+  <div class="logo">
+    oktaani<strong>APU</strong>
+  </div>
+  <div class="nav-tabs-navigation">
+    <div class="nav-tabs-wrapper">
+      <ul class="nav nav-tabs">
+        {#if Array.isArray(items)}
+          {#each items as item}
+            <li class="nav-item">
+              <span
+                class={activeTabValue === item.value ? 'nav-link active' : 'nav-link'}
+                on:click={handleClick(item.value)}
+              >
+                {item.label}
+              </span>
+            </li>
+          {/each}
+        {/if}
+      </ul>
+    </div>
+  </div>
+</nav>
 
 <style>
   .logo {
@@ -78,28 +102,3 @@
     }
   }
 </style>
-
-<nav
-  class="navbar navbar-expand-sm navbar-light bg-light border-bottom mb-2"
-  role="tabpanel">
-  <div class="logo">
-    oktaani<strong>APU</strong>
-  </div>
-  <div class="nav-tabs-navigation">
-    <div class="nav-tabs-wrapper">
-      <ul class="nav nav-tabs">
-        {#if Array.isArray(items)}
-          {#each items as item}
-            <li class="nav-item">
-              <span
-                class={activeTabValue === item.value ? 'nav-link active' : 'nav-link'}
-                on:click={handleClick(item.value)}>
-                {item.label}
-              </span>
-            </li>
-          {/each}
-        {/if}
-      </ul>
-    </div>
-  </div>
-</nav>

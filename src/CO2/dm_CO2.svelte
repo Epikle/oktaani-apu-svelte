@@ -7,23 +7,13 @@
   }
 </script>
 
-<style>
-  .input-group-prepend span {
-    width: 100px;
-  }
-</style>
-
 <p class="mb-1">Dieselmoottori ja manuaalivaihteisto</p>
 
 <div class="input-group input-group-sm mb-2">
   <div class="input-group-prepend">
     <span class="input-group-text">Omamassa</span>
   </div>
-  <input
-    type="number"
-    bind:value={omamassaCO2}
-    class="form-control"
-    placeholder="Omamassa" />
+  <input type="number" bind:value={omamassaCO2} class="form-control" placeholder="Omamassa" />
   <div class="input-group-append">
     <span class="input-group-text">kg</span>
   </div>
@@ -37,6 +27,12 @@
     type="text"
     class="form-control"
     placeholder={omamassaCO2 ? '0,108 x ' + omamassaCO2 + ' - 11,371 = ' + CO2 + ' => ' + CO2R : '0,108m - 11,371'}
-    disabled />
-
+    disabled
+  />
 </div>
+
+<style>
+  .input-group-prepend span {
+    width: 100px;
+  }
+</style>
